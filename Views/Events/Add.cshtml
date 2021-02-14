@@ -1,0 +1,21 @@
+﻿<!--Events.Add.cshtml-->
+@using CodingEvents.ViewModels;
+@model AddEventViewModel;
+
+<h1>Add Event</h1>
+
+<form method="post">
+    <div asp-controller="Events" asp-action="Add" class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" id="desc" rows="5" cols="30"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="ContactEmail"></label>
+        <input asp-for="ContactEmail" />
+    </div>
+    <input type="submit" value="Add Event" />
+</form>
