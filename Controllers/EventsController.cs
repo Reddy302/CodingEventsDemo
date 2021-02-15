@@ -29,15 +29,20 @@ namespace CodingEvents.Controllers
         [HttpPost]
         public IActionResult Add(AddEventViewModel addEventViewModel)
         {
-            Event newEvent = new Event
+            if (ModelState.IsValid)
             {
-                Name = addEventViewModel.Name,
-                Description = addEventViewModel.Description,
-                ContactEmail = addEventViewModel.ContactEmail
-            };
+                Event newEvent = new Event
+                {
+                    Name = addEventViewModel.Name,
+                    Description = addEventViewModel.Description,
+                    ContactEmail = addEventViewModel.ContactEmail,
+                    Type = addEventViewModel.Type
+                };
 
-            EventData.Add(newEvent);
-            return Redirect("/events");
+                EventData.Add(newEvent);
+                return Redirect("/events");
+            }
+            return View(addEventViewModel);
         }
 
         public IActionResult Delete()
