@@ -1,5 +1,6 @@
 ﻿using CodingEvents.Models;
 using Microsoft.EntityFrameworkCore;
+// MAKE SURE YOU HAVE THE ABOVE
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ namespace CodingEvents.Data
 {
     public class EventDbContext : DbContext
     {
+        // REQUIRED PROPERTY FOR DBCONTEXT
         public DbSet<Event> Events { get; set; }
 
+        // ALSO REQUIRED CONFIGURATION OPTIONS TO CREATE THE DATA STORE
         public EventDbContext(DbContextOptions<EventDbContext> options) : base(options)
         {
 

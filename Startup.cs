@@ -25,9 +25,10 @@ namespace CodingEvents
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            // ADD THE BELOW AND IMPORT ALL USING STATEMENTS
             services.AddDbContext<EventDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            // ADD THE ABOVE
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
