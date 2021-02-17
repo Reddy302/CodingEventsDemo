@@ -12,11 +12,20 @@ namespace CodingEvents.Data
     {
         // REQUIRED PROPERTY FOR DBCONTEXT
         public DbSet<Event> Events { get; set; }
+        public DbSet<EventCategory> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<EventTag> EventTags { get; set; }
 
         // ALSO REQUIRED CONFIGURATION OPTIONS TO CREATE THE DATA STORE
         public EventDbContext(DbContextOptions<EventDbContext> options) : base(options)
         {
 
+        }
+
+        // NOT EXPECTED TO REMEMBER THIS CODE STRING
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<EventTag>().HasKey(et => new { et.EventId, et.TagId });
         }
     }
 }

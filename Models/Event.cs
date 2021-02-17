@@ -12,7 +12,9 @@ namespace CodingEvents.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string ContactEmail { get; set; }
-        public EventType Type { get; set; }
+        public EventCategory Category { get; set; }
+
+        public int CategoryId { get; set; }
 
         // HAVE TO HAVE THE EMPTY CONSTRUCTOR FOR THE APP TO WORK CORRECTLY
         public Event()
